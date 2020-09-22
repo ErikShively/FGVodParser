@@ -33,7 +33,7 @@ See configs/CharacterPaths/L_UNICLR.txt for an example. The way this is structur
 JSON is considered a safe format, while pickle is not. Unfortunately, SKLearn models don't play too friendly with JSON. Using the pickle format is perfectly safe when not distributing models, but be aware the JSON is the safest choice. Source: https://docs.python.org/3/library/pickle.html
 
 
-## vidparse.py
+### vidparse.py
 **Usage:**
 `python3 vidparse.py <modelFile> <game> <video> [-c config]`
 | Positional Argument | Description |
@@ -49,7 +49,7 @@ JSON is considered a safe format, while pickle is not. Unfortunately, SKLearn mo
 **Notes:**
 This script currently prints out the prediction results as the model sees them.
 
-## Compressor.py
+### compressor.py
 **Usage:**
 `python3 compressor.py <dictionaryFile>`
 | Positional Argument | Description |
