@@ -6,7 +6,7 @@ import configparser
 import imageio
 import sklearn_json as skljson
 import numpy as np
-from skimage import io
+from skimage import io,color
 
 class vidparse:
     def __init__(self, modelFile, game, config="configs/config.ini"):
@@ -39,13 +39,19 @@ class vidparse:
         YMin = int(Box_Y.split(sep=':')[0])
         YMax = int(Box_Y.split(sep=':')[1])
 
+        forceGrey = bool(config[self.game]["forceGrey"])
+
         imgList = []
 
         processedImg = img[YMin:YMax,XMin:XMax]
+        if(forceGrey):
+            processedImg = color.rgb2gray(processedImg)
         imgList.append(processedImg)
 
         processedImg = img[YMin:YMax,(res[0] - XMax):(res[0] - XMin)]
         processedImg = processedImg[:,::-1]
+        if(forceGrey):
+            processedImg = color.rgb2gray(processedImg)
         imgList.append(processedImg)
         imgList = np.array(imgList).reshape((2,-1))
         return(self.model.predict(imgList))

@@ -3,7 +3,7 @@ import argparse
 import pickle
 import numpy as np
 import pickle
-from skimage import io
+from skimage import io, color
 from os import listdir
 from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
@@ -32,6 +32,8 @@ class IDmodel:
         YMin = int(Box_Y.split(sep=':')[0])
         YMax = int(Box_Y.split(sep=':')[1])
 
+        forceGrey = bool(config[self.game]["forceGrey"])
+
         with open(config[self.game]["charDict_L"], "r") as f:
             for line in f:
                 charName = (line.split(sep=':')[0])
@@ -40,6 +42,8 @@ class IDmodel:
                 for img in listdir(directory):
                     processedImg = io.imread(directory + img)
                     processedImg = processedImg[YMin:YMax,XMin:XMax]
+                    if(forceGrey):
+                        processedImg = color.rgb2gray(processedImg)
                     imgList.append(processedImg)
                 self.trainDict[charName] = imgList
 
@@ -52,6 +56,8 @@ class IDmodel:
                     processedImg = io.imread(directory + img)
                     processedImg = processedImg[YMin:YMax,(res[0] - XMax):(res[0] - XMin)]
                     processedImg = processedImg[:,::-1]
+                    if(forceGrey):
+                        processedImg = color.rgb2gray(processedImg)
                     imgList.append(processedImg)
                 self.trainDict[charName] = imgList
 
