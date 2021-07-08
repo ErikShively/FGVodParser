@@ -30,7 +30,7 @@ This script will generate a model for use in vidparse.py.
 modelgen.py is the most involved to set up, but it can basically be broken up into two steps: the config file and the training data.
 See configs/config.ini for an example on how to set up the config file. Most of the values are very straightforward.
 charDict_L and charDict_R are the least intuitive and they're involved with the training data. These values point to a dictionary file that tell the script where the training images are. charDict_L is a dictionary where the specified character appears on the left. charDict_R the is the dictionary file where they appear on the right.
-See configs/CharacterPaths/L_UNICLR.txt for an example. The way this is structured, there will be redundant images.
+See configs/CharacterPaths/L_EXAMPLEGAME.txt for an example. The way this is structured, there will be redundant images.
 
 **Notes:**
 JSON is considered a safe format, while pickle is not. Unfortunately, SKLearn models don't play too friendly with JSON. Using the pickle format is perfectly safe when not distributing models, but be aware the JSON is the safest choice. Source: https://docs.python.org/3/library/pickle.html
