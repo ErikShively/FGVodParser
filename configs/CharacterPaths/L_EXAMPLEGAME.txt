@@ -1,0 +1,2 @@
+character1:images/EXAMPLEGAME/L/character1
+character2:images/EXAMPLEGAME/L/character2
