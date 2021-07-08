@@ -1,6 +1,6 @@
 # PyVodParser
 
-##Summary and Motivation
+## Summary and Motivation
 I wanted to explore relating machine learning to computer vision, and I thought video games would be a neat way to contextualize the learning process. I aimed to solve a relatively niche problem within a subgenre of competitive video games. This genre, known as 'Fighting Games,' sees 2 players playing head-to-head using 2 different characters. These characters are usually identified by a portrait in a fixed position as part of the game's UI, and this project provides the tools to generate a training set and learning model to classify the two characters on screen at once. It also marks the start and end times of character appearance.
 For more information on the specific problem I was attempting to address, read below:
 
