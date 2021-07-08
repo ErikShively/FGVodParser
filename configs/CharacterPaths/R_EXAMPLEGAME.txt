@@ -1,0 +1,2 @@
+character3:images/EXAMPLE/R/character3
+character4:images/EXAMPLE/R/character4
